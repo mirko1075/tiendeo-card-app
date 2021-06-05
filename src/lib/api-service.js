@@ -79,7 +79,7 @@ class ApiService {
         return response.data;
       })
       .catch(err=>{
-        if (err.message="Unauthorized"){
+        if (err.message==="Unauthorized"){
           this.getToken()
           .then(res=>{
             token=res;
