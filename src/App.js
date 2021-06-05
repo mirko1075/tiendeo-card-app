@@ -96,10 +96,10 @@ function App() {
   return (
     <div className="App">
       <nav>
-        <div><a className="button" href="#" onClick={() => orderArr("title-asc")}>Title &#11015;</a></div>
-        <div><a href="#" className="button" onClick={() => orderArr("title-desc")}>Title &#11014; </a></div>
-        <div><a href="#" className="button" onClick={() => orderArr("dateAsc")}>Date &#11015;</a></div>
-        <div> <a href="#" className="button" onClick={() => orderArr("dateDesc")}>Date &#11014;</a></div>
+        <div><button className="button navButtons" href="#" onClick={() => orderArr("title-desc")}>Title &#11015;</button></div>
+        <div><button href="#" className="button navButtons" onClick={() => orderArr("title-asc")}>Title &#11014; </button></div>
+        <div><button href="#" className="button  navButtons" onClick={() => orderArr("dateAsc")}>Date &#11015;</button></div>
+        <div> <button href="#" className="button navButtons" onClick={() => orderArr("dateDesc")}>Date &#11014;</button></div>
       </nav>
       <br /><br />
       <div className="container">

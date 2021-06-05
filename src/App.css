@@ -50,6 +50,7 @@ a {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  height: 90vh;
 }
 .card {
   display: flex;
@@ -79,7 +80,9 @@ a {
   display: flex;
   flex-direction: column;
 }
-
+.label {
+  text-align: center;
+}
 .inputContainer {
   display: flex;
   flex-direction: column;
@@ -102,6 +105,10 @@ a {
   border-radius: 4px;
   color: white;
   font-weight: 500;
+  text-align: center;
+}
+.navButtons {
+  width: 300px;
 }
 .buttonsContainer {
   display: flex;
@@ -125,10 +132,14 @@ nav {
 }
 
 .buttonAdd {
-  border: 1 solid #335eff;
+  border: 1 solid blue;
   border-radius: 50%;
   width: 25px;
   height: 25px;
+  background-color: blue;
+  color: white;
+  font-weight: 500;
+  text-align: center;
 }
 .closeDiv {
   display: flex;

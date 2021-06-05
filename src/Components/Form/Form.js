@@ -54,11 +54,11 @@ export default function Form({ edit = false, setCreate, setEdit, addCard, update
       <form ref={form} onSubmit={handleSubmit} className="form">
         <div className="inputContainer">
           <label htmlFor="title">Title</label>
-          <input type="text" placeholder='Title' id='title' value={title} onChange={handleChange} required />
+          <input type="text" placeholder='Write here the title...' id='title' value={title} onChange={handleChange} required />
         </div>
         <div className="inputContainer">
           <label htmlFor="description">Description</label>
-          <input type="text" placeholder='Description' id='description' value={description} onChange={handleChange} required />
+          <input type="text" placeholder='Write here descr...' id='description' value={description} onChange={handleChange} required />
         </div>
         {!edit &&
           <div className="inputContainer">
