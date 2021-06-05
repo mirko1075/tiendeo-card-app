@@ -26,10 +26,21 @@ class ApiService {
 
     return pr;
   }
-  getCards() {
-    const token=this.getToken();
+  getCards(token) {
     const pr = this.api
       .get("/cards", { headers: {"Authorization" : `Bearer ${token}`} })
+      .then((response) => {
+        const data= response.data;
+        return data
+      })
+      .catch((err) => {
+        throw err;
+      });
+    return pr;
+  }
+  getCard(card_id,token) {
+    const pr = this.api
+      .get("/cards/"+card_id, { headers: {"Authorization" : `Bearer ${token}`} })
       .then((response) => {
         const data= response.data;
         return data
@@ -40,18 +51,60 @@ class ApiService {
     return pr;
   }
 
-  postCard(data) {
-    const token=this.getToken();
+  postCard(data, token) {
+    console.log('data :>> ', data);
+
     const pr = this.api
-    .post(data, {
+    .post("/cards",data, {
       headers: {
         "Authorization" : `Bearer ${token}`,
-        'content-type': 'multipart/form-data'
+        'Content-Type': 'multipart/form-data'
       }})
       .then(response=>{
-        return response;
+        return response.data;
       })
       .catch(err=>console.log(err))
+      return pr;
+  }
+  updateCard(id, data, token) {
+    console.log('data :>> ', data, id);
+    const pr = this.api
+    .put("/cards/"+id, data, {
+      headers: {
+        "Authorization" : `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }})
+      .then(response=>{
+
+        return response.data;
+      })
+      .catch(err=>{
+        if (err.message="Unauthorized"){
+          this.getToken()
+          .then(res=>{
+            token=res;
+            //this.updateCard(id, data, token);
+          })
+          .catch(err=>console.log(err))
+        }}
+       )
+      return pr;
+  }
+
+  deleteCard(id, token) {
+    console.log('data :>> ', id);
+
+    const pr = this.api
+    .delete("/cards/"+id, {
+      headers: {
+        "Authorization" : `Bearer ${token}`,
+        'Content-Type': 'multipart/form-data'
+      }})
+      .then(response=>{
+        return response.data;
+      })
+      .catch(err=>console.log("err", err))
+      return pr;
   }
 }
 
