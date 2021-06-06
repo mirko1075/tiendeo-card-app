@@ -50,9 +50,9 @@ export default function Form({ edit = false, setCreate, setEdit, addCard, update
         <div className="closeDiv">
           {
             edit ?
-              <button className="closeButton" onClick={() => setEdit(false)}>X</button>
+              <button className="closeButton" onClick={() => setEdit(false)}></button>
               :
-              <button className="closeButton" onClick={() => setCreate(false)}>X</button>
+              <button className="closeButton" onClick={() => setCreate(false)}></button>
           }
 
         </div>

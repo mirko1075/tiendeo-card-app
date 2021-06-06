@@ -116,19 +116,18 @@ function App() {
   return (
     <div className="App">
       <Nav orderArr={orderArr} />
-      <div className="searchDiv">
-        <label htmlFor="searchInput" name="searchLabel" className="searchLabel">Search</label>
-        <input ref={inputRef} type="text" placeholder="Search text..." className="searchInput" id="searchInput" onChange={handleChange} value={searchText} />
-      </div>
-      <br /><br />
+
       <div className="container">
+        <div className="searchDiv">
+          <label htmlFor="searchInput" name="searchLabel" className="searchLabel">Search</label>
+          <input ref={inputRef} type="text" placeholder="Search text..." className="searchInput" id="searchInput" onChange={handleChange} value={searchText} />
+        </div>
         {
           cards && cards.map(card =>
             <Card key={card.id} name="card" card={card} deleteCard={deleteCard} updateCard={updateCard} />
           )
         }
-      </div>
-      <div>
+
         {create ?
           <Form setCreate={setCreate} addCard={addCard} deleteCard={deleteCard} />
           :

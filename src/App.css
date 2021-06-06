@@ -1,8 +1,8 @@
-@import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css')
+@import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
 .App {
-  text-align: center;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 .icons {
   width: 15px;
@@ -53,6 +53,8 @@ a {
   height: 90vh;
   align-items: flex-start;
   align-content: flex-start;
+  position: absolute;
+  top: 50px;
 }
 
 .header {
@@ -72,6 +74,9 @@ a {
 .imgDiv {
   display: flex;
   justify-content: center;
+  border: 0.5px solid grey;
+  box-shadow: 5px 5px 5px grey;
+  margin: 8px 8px 0 8px;
 }
 .modal {
   //position: absolute;
@@ -96,7 +101,7 @@ a {
 }
 .form {
   background-color: #ffffff;
-  padding: 20px;
+  padding: 10px 20px 20px 20px;
   display: flex;
   flex-direction: column;
 }
@@ -110,6 +115,8 @@ a {
   margin: 0 0 10px 0;
   min-width: 400px;
   max-width: 400px;
+  position: absolute;
+  top: 50px;
 }
 .imgInput {
   display: none;
@@ -148,6 +155,7 @@ a {
   align-items: center;
   text-transform: uppercase;
   cursor: pointer;
+  box-shadow: 2px 2px 2px grey;
 }
 .navButtons {
   background-color: #6f7071;
@@ -159,6 +167,9 @@ a {
   width: 20vw;
   text-transform: uppercase;
   cursor: pointer;
+}
+.navButtonDiv {
+  margin: 5px;
 }
 .buttonsContainer {
   display: flex;
@@ -201,6 +212,10 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(10%, 10%);
 }
 
 .addDiv {
@@ -230,11 +245,14 @@ nav {
   text-align: end;
 }
 .closeButton {
-  color: white;
-  background-color: #6f7071;
-  border: 1px solid #6f7071;
-  border-radius: 50%;
+  background-image: url('./Resources/Img/cross.svg');
+  border: none;
   cursor: pointer;
+  width: 15px;
+  height: 15px;
+  background-size: 15px 15px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .icons {
@@ -307,6 +325,9 @@ nav {
   .imgDiv {
     display: flex;
     justify-content: center;
+    border: 0.5px solid grey;
+    box-shadow: 5px 5px 5px grey;
+    margin: 8px 8px 0 8px;
   }
   .modal {
     //position: absolute;
@@ -377,6 +398,7 @@ nav {
     align-items: center;
     text-transform: uppercase;
     cursor: pointer;
+    box-shadow: 2px 2px 2px grey;
   }
   .navButtons {
     background-color: #6f7071;
@@ -430,6 +452,12 @@ nav {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(10%, 10%);
+    width: 83%;
+    z-index: 1;
   }
 
   .addDiv {
@@ -459,11 +487,14 @@ nav {
     text-align: end;
   }
   .closeButton {
-    color: white;
-    background-color: #6f7071;
-    border: 1px solid #6f7071;
-    border-radius: 50%;
+    background-image: url('./Resources/Img/cross.svg');
+    border: none;
     cursor: pointer;
+    width: 15px;
+    height: 15px;
+    background-size: 15px 15px;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 
   .icons {
@@ -484,7 +515,7 @@ nav {
     margin: 0 10px 0 0;
   }
   .searchInput {
-    width: 500px;
+    width: 200px;
     border: 1 px solid #6f7071;
   }
 }
