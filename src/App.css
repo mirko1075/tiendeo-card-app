@@ -51,7 +51,7 @@ a {
   flex-wrap: wrap;
   justify-content: center;
   height: 90vh;
-  align-items: flex-end;
+  align-items: flex-start;
   align-content: flex-start;
 }
 .header {
@@ -258,6 +258,9 @@ nav {
 .searchInput {
   width: 500px;
   border: 1 px solid #6f7071;
+}
+.points {
+  cursor: pointer;
 }
 
 @media only screen and (max-device-width: 480px) {

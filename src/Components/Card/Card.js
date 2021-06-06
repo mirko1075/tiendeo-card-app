@@ -60,7 +60,7 @@ export default function Card(props) {
 
       <div className="descrDiv">
         <div ref={descr} className="descrText">{returnShortText(description)}</div>
-        {description.length > 200 ? <div ref={points} onClick={() => returnAllText(description)}>...</div> : ""}
+        {description.length > 200 ? <div className="points" ref={points} onClick={() => returnAllText(description)}>...</div> : ""}
       </div>
       <div className="buttonsContainer">
         <div className="buttonDiv"><button className="button" data-testid="editButton" onClick={() => setEdit(true)}><img className="icons" src={pencilIcon} alt="edit" />Edit</button></div>
