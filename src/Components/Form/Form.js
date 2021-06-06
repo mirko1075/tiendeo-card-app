@@ -80,6 +80,6 @@ export default function Form({ edit = false, setCreate, setEdit, addCard, update
           <input className="button" data-testid="submit" type="submit" value="Submit" />
         </div>
       </form>
-    </div >
+    </div>
   )
 }

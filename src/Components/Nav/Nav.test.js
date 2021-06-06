@@ -9,7 +9,15 @@ it("Renders without crashing", () => {
     ReactDom.render(<Nav />, div)
 })
 
-it("Renders buttons correctly", () => {
+it("Renders Nav correctly", () => {
     const { container } = render(<Nav />);
-    expect(container.firstChild).toHaveClass('nav')
+    expect(container.firstChild).toHaveClass('nav');
+    const { getByTestId } = render(
+        <button className="button navButtons" />
+    );
+    expect(getByTestId('button-1')).toBeTruthy();
+    expect(getByTestId('button-2')).toBeTruthy();
+    expect(getByTestId('button-3')).toBeTruthy();
+    expect(getByTestId('button-4')).toBeTruthy();
+
 })
