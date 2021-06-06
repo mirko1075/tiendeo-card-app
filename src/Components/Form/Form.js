@@ -12,10 +12,8 @@ export default function Form({ edit = false, setCreate, setEdit, addCard, update
       setPreview(undefined)
       return
     }
-
     const objectUrl = URL.createObjectURL(image)
     setPreview(objectUrl)
-
     // free memory when ever this component is unmounted
     return () => URL.revokeObjectURL(objectUrl)
   }, [image])
@@ -64,11 +62,11 @@ export default function Form({ edit = false, setCreate, setEdit, addCard, update
         </div>
         <div className="inputContainer">
           <label htmlFor="description">Description</label>
-          <textarea name="description" id="description" cols="30" rows="10" placeholder="Write here descr..." onChange={handleChange} required>{description ? description : ''}</textarea>
+          <textarea name="description" id="description" cols="30" rows="5" placeholder="Write here descr..." onChange={handleChange} required defaultValue={description ? description : ''} />
         </div>
         {!edit &&
           <div className="inputContainer">
-            <label htmlFor="image" class="imgLabel">Select an image</label>
+            <label htmlFor="image" data-testid="imgLabel" className="imgLabel">Select an image</label>
             <input type="file"
               id="image"
               className="imgInput"
@@ -79,7 +77,7 @@ export default function Form({ edit = false, setCreate, setEdit, addCard, update
           </div>
         }
         <div className="sumbitDiv">
-          <input className="button" type="submit" />
+          <input className="button" data-testid="submit" type="submit" value="Submit" />
         </div>
       </form>
     </div >

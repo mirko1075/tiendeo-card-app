@@ -27,8 +27,8 @@
 
 .img {
   height: 120px;
-  width: 100%;
-  background-color: #444;
+  width: 120px;
+  background-color: #c4c4c4;
 }
 
 .image {
@@ -51,6 +51,11 @@ a {
   flex-wrap: wrap;
   justify-content: center;
   height: 90vh;
+  align-items: flex-end;
+  align-content: flex-start;
+}
+.header {
+  display: flex;
 }
 .card {
   display: flex;
@@ -59,9 +64,9 @@ a {
   min-height: 200px;
   height: fit-content;
   max-width: 400px;
-  border: 1px solid grey;
+  border: 1px solid #c4c4c4;
   border-radius: 4px;
-  margin: 0 10px 0 0;
+  margin: 0 10px 10px 0;
 }
 .imgDiv {
   display: flex;
@@ -104,8 +109,8 @@ a {
   display: none;
 }
 .imgLabel {
-  background-color: #b3b4b7;
-  border: 1px solid #b3b4b7;
+  background-color: #c4c4c4;
+  border: 1px solid #c4c4c4;
   border-radius: 4px;
   color: black;
   font-weight: 500;
@@ -113,11 +118,13 @@ a {
   margin: 0 0 5px 0;
 }
 .imgPreview {
-  background-color: #444;
-  border: 0px solid #444;
+  background-color: #c4c4c4;
+  border: 0px solid #c4c4c4;
   border-radius: 4px;
   margin: 0;
   padding: 0;
+  display: flex;
+  justify-content: center;
 }
 .button {
   background-color: #6f7071;
@@ -148,7 +155,7 @@ a {
   display: flex;
   justify-content: space-around;
   height: 50px;
-  background-color: #b3b4b7;
+  background-color: #c4c4c4;
 }
 
 .sumbitDiv {
@@ -167,14 +174,20 @@ a {
   text-align: left;
   height: 30px;
   font-weight: 700;
-  border-bottom: 0.5px solid grey;
 }
 .descrDiv {
+  display: flex;
+  flex-direction: row;
   padding: 10px;
   text-align: left;
-  min-height: 50px;
+  min-height: 90px;
+  width: 336px;
+  align-items: flex-end;
 }
-
+.descrText {
+  width: 258px;
+  min-height: 90px;
+}
 nav {
   display: flex;
   flex-direction: row;
@@ -219,4 +232,245 @@ nav {
   width: 15px !important;
   height: 15px;
   margin-right: 10px;
+}
+
+.searchDiv {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+.searchLabel {
+  margin: 0 10px 0 0;
+}
+.searchInput {
+  width: 500px;
+  border: 1 px solid #6f7071;
+}
+
+@media only screen and (max-device-width: 480px),
+  only screen and (min-device-width: 320px) {
+  .img {
+    height: 60px;
+    width: 60px;
+    background-color: #c4c4c4;
+  }
+
+  .image {
+    float: left;
+    width: 10%;
+    &:nth-child(2n) {
+      clear: left;
+    }
+
+    &:nth-child(2n + 1) {
+      margin-right: 0;
+    }
+  }
+  a {
+    color: #0f0f0f;
+    text-decoration: none;
+  }
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 90vh;
+  }
+  .header {
+    display: flex;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    min-height: 200px;
+    height: fit-content;
+    max-width: 400px;
+    border: 1px solid #c4c4c4;
+    border-radius: 4px;
+    margin: 0 10px 10px 0;
+  }
+  .imgDiv {
+    display: flex;
+    justify-content: center;
+  }
+  .modal {
+    //position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    //top: 0;
+    //left: 0;
+    min-width: 100vw;
+    width: 100vw;
+    min-height: 700px;
+    max-height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .form {
+    background-color: #ffffff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  .label {
+    text-align: center;
+  }
+  .inputContainer {
+    display: flex;
+    flex-direction: column;
+    color: #000000;
+    margin: 0 0 10px 0;
+    min-width: 80vw;
+    max-width: 80vw;
+  }
+  .imgInput {
+    display: none;
+  }
+  .imgLabel {
+    background-color: #c4c4c4;
+    border: 1px solid #c4c4c4;
+    border-radius: 4px;
+    color: black;
+    font-weight: 500;
+    text-align: center;
+    margin: 0 0 5px 0;
+  }
+  .imgPreview {
+    background-color: #c4c4c4;
+    border: 0px solid #c4c4c4;
+    border-radius: 4px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  .button {
+    background-color: #6f7071;
+    border: 1px solid #6f7071;
+    border-radius: 4px;
+    color: white;
+    font-weight: 700;
+    text-align: center;
+    width: 110px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+  }
+  .navButtons {
+    background-color: #6f7071;
+    border: 1px solid #6f7071;
+    border-radius: 4px;
+    color: white;
+    font-weight: 700;
+    text-align: center;
+    width: 22vw;
+    text-transform: uppercase;
+  }
+  .buttonsContainer {
+    display: flex;
+    justify-content: space-around;
+    height: 50px;
+    background-color: #c4c4c4;
+  }
+
+  .sumbitDiv {
+    display: flex;
+    justify-content: center;
+  }
+  .buttonDiv {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .titleDiv {
+    padding: 10px;
+    text-align: left;
+    height: 30px;
+    font-weight: 700;
+  }
+  .descrDiv {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    text-align: left;
+    min-height: 90px;
+    width: 269px;
+    align-items: flex-end;
+  }
+  .descrText {
+    width: 258px;
+    min-height: 90px;
+  }
+  nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .addDiv {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .buttonAdd {
+    border: 1px solid #6f7071;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: #6f7071;
+    color: white;
+    font-size: 2rem;
+    font-weight: 500;
+    background-image: url('./Resources/Img/plus.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px 20px;
+  }
+  .closeDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-content: flex-start;
+    height: 100%;
+  }
+  .closeButton {
+    color: white;
+    background-color: #6f7071;
+    border: 1px solid #6f7071;
+    border-radius: 50%;
+  }
+
+  .icons {
+    width: 15px !important;
+    height: 15px;
+    margin-right: 10px;
+  }
+
+  .searchDiv {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+  .searchLabel {
+    margin: 0 10px 0 0;
+  }
+  .searchInput {
+    width: 500px;
+    border: 1 px solid #6f7071;
+  }
 }

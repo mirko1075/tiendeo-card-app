@@ -1,18 +1,19 @@
-import { useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import Card from "./Components/Card/Card"
 import Form from "./Components/Form/Form"
+import Nav from "./Components/Nav/Nav"
 import apiService from "./lib/api-service";
 import './App.css';
-import addIcon from "./Resources/Img/plus.svg"
-
-
-
-
 
 function App() {
   const [cards, setCards] = useState([]);
+  const [cardsOrig, setCardsOrig] = useState([]);
+  const [searchText, setSearchText] = useState("");
   const [create, setCreate] = useState(false);
-  const [token, setToken] = useState("")
+  const [token, setToken] = useState("");
+
+  const inputRef = useRef(null)
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     setToken(token);
@@ -20,6 +21,7 @@ function App() {
       .then(cardsReceived => {
         console.log(`cardsReceived from App`, cardsReceived)
         setCards(cardsReceived);
+        setCardsOrig(cardsReceived);
       })
       .catch(err => {
         if (err.message === "Unuthorized") {
@@ -31,12 +33,14 @@ function App() {
                 .then(cardsReceived => {
                   console.log(`cardsReceived from App`, cardsReceived)
                   setCards(cardsReceived);
+                  setCardsOrig(cardsReceived);
                 })
                 .catch(err => console.log(err))
             })
             .catch(err => console.log(err))
         }
       });
+
   }, []);
 
   const addCard = (card) => {
@@ -44,6 +48,7 @@ function App() {
       .then(res => {
         const newCards = [...cards, res];
         setCards([...newCards]);
+        setCardsOrig([...newCards]);
       })
       .catch(err => console.log(err))
 
@@ -54,6 +59,7 @@ function App() {
       .then(res => {
         const newCards = [...cards.filter(el => el.id !== idCard)];
         setCards([...newCards]);
+        setCardsOrig([...newCards]);
       })
       .catch(err => console.log(err))
 
@@ -69,10 +75,20 @@ function App() {
         newCards[index] = obj;
         setCards([]);  // To force re-render - the Array had not changed reference
         setCards([...newCards]);
+        setCardsOrig([]);
+        setCardsOrig([...newCards]);
         console.log(`cards new `, cards)
       })
       .catch(err => console.log(err))
   }
+  const handleChange = (e) => {
+    setSearchText(inputRef.current.value);
+  }
+  useEffect(() => {
+    let newCards = new Array();
+    searchText.length > 0 ? newCards = [...cards.filter(el => el.title.includes(searchText) || el.description.includes(searchText))] : newCards = [...cardsOrig];
+    setCards([...newCards]);
+  }, [searchText]);
 
   const orderArr = (order) => {
     const newCards = [...cards];
@@ -80,34 +96,37 @@ function App() {
       case "title-asc":
         newCards.sort((a, b) => (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0))
         setCards(newCards);
+        setCardsOrig([...newCards]);
         break;
       case "title-desc":
         newCards.sort((a, b) => (a.title > b.title) ? -1 : ((b.title > a.title) ? 1 : 0))
         setCards(newCards);
+        setCardsOrig([...newCards]);
         break;
       case "dateAsc":
         newCards.sort((a, b) => new Date(a.created) < new Date(b.created) ? 1 : -1)
         setCards(newCards);
+        setCardsOrig([...newCards]);
         break;
       case "dateDesc":
         newCards.sort((a, b) => new Date(a.created) > new Date(b.created) ? 1 : -1)
         setCards(newCards);
+        setCardsOrig([...newCards]);
         break;
     }
   }
   return (
     <div className="App">
-      <nav>
-        <div><button className="button navButtons" href="#" onClick={() => orderArr("title-desc")}>Title &#11015;</button></div>
-        <div><button href="#" className="button navButtons" onClick={() => orderArr("title-asc")}>Title &#11014; </button></div>
-        <div><button href="#" className="button  navButtons" onClick={() => orderArr("dateAsc")}>Date &#11015;</button></div>
-        <div> <button href="#" className="button navButtons" onClick={() => orderArr("dateDesc")}>Date &#11014;</button></div>
-      </nav>
+      <Nav orderArr={orderArr} />
+      <div className="searchDiv">
+        <label htmlFor="searchInput" name="searchLabel" className="searchLabel">Search</label>
+        <input ref={inputRef} type="text" placeholder="Search text..." className="searchInput" id="searchInput" onChange={handleChange} value={searchText} />
+      </div>
       <br /><br />
       <div className="container">
         {
           cards && cards.map(card =>
-            <Card key={card.id} card={card} deleteCard={deleteCard} updateCard={updateCard} />
+            <Card key={card.id} name="card" card={card} deleteCard={deleteCard} updateCard={updateCard} />
           )
         }
       </div>
@@ -116,7 +135,7 @@ function App() {
           <Form setCreate={setCreate} addCard={addCard} deleteCard={deleteCard} />
           :
           <div className="addDiv">
-            <button className="buttonAdd" onClick={() => setCreate(true)}></button>
+            <button data-testid="buttonAdd" className="buttonAdd" onClick={() => setCreate(true)}></button>
           </div>
         }
       </div>
