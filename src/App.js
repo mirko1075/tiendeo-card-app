@@ -19,7 +19,6 @@ function App() {
     setToken(token);
     apiService.getCards(token)
       .then(cardsReceived => {
-        console.log(`cardsReceived from App`, cardsReceived)
         setCards(cardsReceived);
         setCardsOrig(cardsReceived);
       })
@@ -31,7 +30,6 @@ function App() {
               setToken(tokenReceived);
               apiService.getCards(token)
                 .then(cardsReceived => {
-                  console.log(`cardsReceived from App`, cardsReceived)
                   setCards(cardsReceived);
                   setCardsOrig(cardsReceived);
                 })
