@@ -43,9 +43,9 @@ export default function Form({ edit = false, setCreate, setEdit, addCard, update
     setEdit && setEdit(false);
     setCreate && setCreate(false);
   };
-
+  const classVar = setEdit ? 'editModal' : ''
   return (
-    <div className="modal">
+    <div className={"modal " + classVar}>
       <div className="closeDiv">
         {
           edit ?
