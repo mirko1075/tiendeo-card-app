@@ -85,7 +85,7 @@ function App() {
     setSearchText(inputRef.current.value);
   }
   useEffect(() => {
-    let newCards = new Array();
+    let newCards = [];
     searchText.length > 0 ? newCards = [...cards.filter(el => el.title.includes(searchText) || el.description.includes(searchText))] : newCards = [...cardsOrig];
     setCards([...newCards]);
   }, [searchText]);
