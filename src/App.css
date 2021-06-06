@@ -189,11 +189,11 @@ a {
   padding: 10px;
   text-align: left;
   min-height: 90px;
-  width: 336px;
+  width: fit-content;
   align-items: flex-end;
 }
 .descrText {
-  width: 258px;
+  width: fit-content;
   min-height: 90px;
 }
 nav {
@@ -417,11 +417,11 @@ nav {
     padding: 10px;
     text-align: left;
     min-height: 90px;
-    width: 269px;
+    width: fit-content;
     align-items: flex-end;
   }
   .descrText {
-    width: 258px;
+    width: fit-content;
     min-height: 90px;
   }
   nav {
