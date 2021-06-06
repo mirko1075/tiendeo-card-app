@@ -89,7 +89,7 @@ function App() {
   }
   useEffect(() => {
     let newCards = [];
-    searchText.length > 0 ? newCards = [...cards.filter(el => el.title.includes(searchText) || el.description.includes(searchText))] : newCards = [...cardsOrig];
+    searchText.length > 0 ? newCards = [...cardsOrig.filter(el => el.title.includes(searchText) || el.description.toUpperCase().includes(searchText.toUpperCase()))] : newCards = [...cardsOrig];
     setCards([...newCards]);
   }, [searchText]);
 
