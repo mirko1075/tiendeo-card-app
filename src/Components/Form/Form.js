@@ -58,11 +58,11 @@ export default function Form({ edit = false, setCreate, setEdit, addCard, update
         </div>
         <div className="inputContainer">
           <label htmlFor="title">Title</label>
-          <input type="text" placeholder='Write here the title...' id='title' value={title} onChange={handleChange} required />
+          <input type="text" placeholder='Title goes here...' id='title' value={title} onChange={handleChange} required />
         </div>
         <div className="inputContainer">
           <label htmlFor="description">Description</label>
-          <textarea name="description" id="description" cols="30" rows="5" placeholder="Write here descr..." onChange={handleChange} required defaultValue={description ? description : ''} />
+          <textarea name="description" id="description" cols="30" rows="5" placeholder="Description goes here..." onChange={handleChange} required defaultValue={description ? description : ''} />
         </div>
         {!edit &&
           <div className="inputContainer">

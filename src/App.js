@@ -129,7 +129,7 @@ function App() {
         </div>
         {
           cards && cards.map(card =>
-            <Card key={card.id} name="card" card={card} deleteCard={deleteCard} updateCard={updateCard} openEditForm={openEditForm} />
+            <Card key={card.id} name="card" openEditForm={openEditForm} card={card} deleteCard={deleteCard} updateCard={updateCard} openEditForm={openEditForm} />
           )
         }
       </div>
