@@ -1,8 +1,8 @@
 import { useState, useRef } from "react";
 import Form from "../Form/Form"
 import defaultImg from "../../Resources/Img/user.png"
-import pencil from "../../Resources/Img/pencil.svg"
-
+import pencilIcon from "../../Resources/Img/pencil.svg"
+import deleteIcon from "../../Resources/Img/cancel-circle.svg"
 
 export default function Card(props) {
   const card = props.card;
@@ -42,8 +42,8 @@ export default function Card(props) {
       <div className="titleDiv">{title}</div>
       <div className="descrDiv">{description}</div>
       <div className="buttonsContainer">
-        <div className="buttonDiv"><button className="button" onClick={() => setEdit(true)}><img className="icons" src={pencil} alt="edit" />Edit</button></div>
-        <div className="buttonDiv"><button className="button" onClick={() => props.deleteCard(id)}>Delete</button></div>
+        <div className="buttonDiv"><button className="button" onClick={() => setEdit(true)}><img className="icons" src={pencilIcon} alt="edit" />Edit</button></div>
+        <div className="buttonDiv"><button className="button" onClick={() => props.deleteCard(id)}><img className="icons" src={deleteIcon} alt="delete" />Delete</button></div>
       </div>
       {
         edit && <Form card={card} edit setEdit={setEdit} updateCard={props.updateCard} />

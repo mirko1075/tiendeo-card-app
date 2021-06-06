@@ -3,6 +3,7 @@ import Card from "./Components/Card/Card"
 import Form from "./Components/Form/Form"
 import apiService from "./lib/api-service";
 import './App.css';
+import addIcon from "./Resources/Img/plus.svg"
 
 
 
@@ -115,7 +116,7 @@ function App() {
           <Form setCreate={setCreate} addCard={addCard} deleteCard={deleteCard} />
           :
           <div className="addDiv">
-            <button className="buttonAdd" onClick={() => setCreate(true)}>+</button>
+            <button className="buttonAdd" onClick={() => setCreate(true)}></button>
           </div>
         }
       </div>
