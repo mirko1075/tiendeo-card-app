@@ -30,11 +30,11 @@ export default function Card(props) {
     e.preventDefault();
     const formData = new FormData();
     // Update the formData object
-    console.log(`params`, title, description)
+    console.log(`params`, title, description);
     formData.append("title", title);
     formData.append("description", description);
     props.updateCard(card.id, formData);
-    props.setEdit(false)
+    props.setEdit(false);
   };
 
   const returnShortText = (text) => {
@@ -48,7 +48,7 @@ export default function Card(props) {
     } else {
       descr.current.innerHTML = text.slice(0, 150)[0].toUpperCase() + text.slice(0, 150).slice(1);
     }
-    setIsShortText(!isShortText)
+    setIsShortText(!isShortText);
   }
   return (
     <div className="card">

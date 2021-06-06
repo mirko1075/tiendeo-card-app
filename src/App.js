@@ -7,7 +7,7 @@ import './App.css';
 
 function App() {
   const [cards, setCards] = useState([]);
-  const [cardsOrig, setCardsOrig] = useState([]);
+  const [cardsOrig, setCardsOrig] = useState([]);  //Create a copy to set it back anytime
   const [cardToEdit, setCardToEdit] = useState({});
   const [searchText, setSearchText] = useState("");
   const [create, setCreate] = useState(false);
@@ -42,6 +42,7 @@ function App() {
 
   }, []);
 
+
   const addCard = (card) => {
     apiService.postCard(card, token)
       .then(res => {
@@ -61,8 +62,8 @@ function App() {
         setCardsOrig([...newCards]);
       })
       .catch(err => console.log(err))
-
   }
+
   const updateCard = (card_id, formData) => {
     apiService.updateCard(card_id, formData, token)
       .then(res => {
@@ -74,9 +75,8 @@ function App() {
         newCards[index] = obj;
         setCards([]);  // To force re-render - the Array had not changed reference
         setCards([...newCards]);
-        setCardsOrig([]);
         setCardsOrig([...newCards]);
-        console.log(`cards new `, cards)
+        console.log(`cards new `, cards);
       })
       .catch(err => console.log(err))
   }
@@ -85,11 +85,11 @@ function App() {
   }
   const openEditForm = (card) => {
     setCardToEdit(card);
-    setEdit(true)
+    setEdit(true);
   }
   useEffect(() => {
     let newCards = [];
-    searchText.length > 0 ? newCards = [...cardsOrig.filter(el => el.title.includes(searchText) || el.description.toUpperCase().includes(searchText.toUpperCase()))] : newCards = [...cardsOrig];
+    searchText.length > 0 ? newCards = [...cardsOrig.filter(el => el.title.toUpperCase().includes(searchText.toUpperCase()) || el.description.toUpperCase().includes(searchText.toUpperCase()))] : newCards = [...cardsOrig];
     setCards([...newCards]);
   }, [searchText]);
 
@@ -121,7 +121,6 @@ function App() {
   return (
     <div className="App">
       <Nav orderArr={orderArr} />
-
       <div className="container">
         <div className="searchDiv">
           <label htmlFor="searchInput" name="searchLabel" className="searchLabel">Search</label>
