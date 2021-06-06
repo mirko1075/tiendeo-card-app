@@ -290,7 +290,32 @@ nav {
 .points {
   cursor: pointer;
 }
+.conf-container {
+  background-color: #ffffff;
+  padding: 10px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 5px 5px 5px #6f7071;
+  border-radius: 4px;
+}
 
+.conf-text-div {
+  display: flex;
+  min-width: 400px;
+  min-height: 100px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.conf-buttons-div {
+  display: flex;
+  min-width: 400px;
+  min-height: 100px;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+}
 @media only screen and (max-device-width: 480px) {
   nav {
     width: 83%;

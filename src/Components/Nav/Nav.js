@@ -1,7 +1,6 @@
 import React from 'react'
 
 export default function Nav({ orderArr, orderSet }) {
-    console.log(`orderSet`, orderSet)
     return (
         <nav className="nav">
             <div className="navButtonDiv"><button data-testid="button-1" className={"button navButtons " + (orderSet === "title-desc" ? 'active' : '')} onClick={() => orderArr("title-desc")}>Title &#11015;</button></div>

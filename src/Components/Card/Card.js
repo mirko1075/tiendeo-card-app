@@ -4,8 +4,7 @@ import defaultImg from "../../Resources/Img/user.png"
 import pencilIcon from "../../Resources/Img/pencil.svg"
 import deleteIcon from "../../Resources/Img/cancel-circle.svg"
 
-export default function Card(props) {
-  const card = props.card;
+export default function Card({ card, askConfDeleteCart, openEditForm, setEdit, updateCard }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isShortText, setIsShortText] = useState(false);
   const [image, setImage] = useState(card.image);
@@ -33,8 +32,8 @@ export default function Card(props) {
     console.log(`params`, title, description);
     formData.append("title", title);
     formData.append("description", description);
-    props.updateCard(card.id, formData);
-    props.setEdit(false);
+    updateCard(card.id, formData);
+    setEdit(false);
   };
 
   const returnShortText = (text) => {
@@ -62,8 +61,8 @@ export default function Card(props) {
         {description.length > 200 ? <div className="points" ref={points} onClick={() => returnAllText(description)}>...</div> : ""}
       </div>
       <div className="buttonsContainer">
-        <div className="buttonDiv"><button className="button" data-testid="editButton" onClick={() => props.openEditForm(card)}><img className="icons" src={pencilIcon} alt="edit" />Edit</button></div>
-        <div className="buttonDiv"><button className="button" data-testid="deleteButton" onClick={() => props.deleteCard(id)}><img className="icons" src={deleteIcon} alt="delete" />Delete</button></div>
+        <div className="buttonDiv"><button className="button" data-testid="editButton" onClick={() => openEditForm(card)}><img className="icons" src={pencilIcon} alt="edit" />Edit</button></div>
+        <div className="buttonDiv"><button className="button" data-testid="deleteButton" onClick={() => askConfDeleteCart(id)}><img className="icons" src={deleteIcon} alt="delete" />Delete</button></div>
       </div>
     </div>
   )

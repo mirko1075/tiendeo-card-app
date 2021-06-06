@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 
-export default function Form({ edit = false, setCreate, setEdit, addCard, updateCard, card }) {
+export default function Form({ edit = false, setCreate, setEdit, addCard, updateCard, card, globalClick }) {
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState()
   const [title, setTitle] = useState(card ? card.title : "");
@@ -43,15 +43,12 @@ export default function Form({ edit = false, setCreate, setEdit, addCard, update
     setEdit && setEdit(false);
     setCreate && setCreate(false);
   };
-  const globalClick = (e) => {
-    setEdit && setEdit(false);
-    setCreate && setCreate(false);
-  }
+
 
   //const classVar = setEdit ? 'editModal' : '';
   return (
-    <div className="modal" onClick={globalClick}>
-      <form ref={form} onSubmit={handleSubmit} className="form" onClick={(e) => globalClick(e)}>
+    <div className="modal">
+      <form ref={form} onSubmit={handleSubmit} className="form" >
         <div className="closeDiv">
           {
             edit ?
@@ -85,6 +82,6 @@ export default function Form({ edit = false, setCreate, setEdit, addCard, update
           <input className="button" data-testid="submit" type="submit" value="Submit" />
         </div>
       </form>
-    </div>
+    </div >
   )
 }
