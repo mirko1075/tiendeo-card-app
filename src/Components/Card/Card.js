@@ -54,7 +54,7 @@ export default function Card(props) {
     <div className="card">
       <div className="header">
         <div className="imgDiv"><img className="img object-fit_fill" src={card.imageUrl !== "https://tiendeo-frontend-cards-api.herokuapp.com/" ? card.imageUrl : defaultImg} alt="Image" /></div>
-        <div className="titleDiv">{title}</div>
+        <div className="titleDiv">{returnShortText(title)}</div>
       </div>
 
       <div className="descrDiv">

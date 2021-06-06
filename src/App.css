@@ -63,6 +63,7 @@ a {
   border: 1px solid #c4c4c4;
   border-radius: 4px;
   margin: 0 10px 10px 0;
+  box-shadow: 5px 5px 5px grey;
 }
 .imgDiv {
   display: flex;
@@ -144,6 +145,10 @@ a {
   text-transform: uppercase;
   cursor: pointer;
   box-shadow: 2px 2px 2px grey;
+}
+.button:hover {
+  background-color: white;
+  color: black;
 }
 .navButtons {
   background-color: #6f7071;
@@ -227,6 +232,10 @@ nav {
   background-position: center;
   background-size: 20px 20px;
   cursor: pointer;
+}
+.buttonAdd:hover {
+  background-color: white;
+  color: black;
 }
 .closeDiv {
   height: 100%;
@@ -341,6 +350,10 @@ nav {
     cursor: pointer;
     box-shadow: 2px 2px 2px grey;
   }
+  .button:hover {
+    background-color: white;
+    color: black;
+  }
   .navButtons {
     background-color: #6f7071;
     border: 1px solid #6f7071;
@@ -421,6 +434,10 @@ nav {
     background-position: center;
     background-size: 20px 20px;
     cursor: pointer;
+  }
+  .buttonAdd:hover {
+    background-color: white;
+    color: black;
   }
   .closeDiv {
     height: 100%;
