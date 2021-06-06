@@ -45,7 +45,7 @@ export default function Form({ edit = false, setCreate, setEdit, addCard, update
   };
   const classVar = setEdit ? 'editModal' : ''
   return (
-    <div className={"modal " + classVar}>
+    <div className="modal">
       <form ref={form} onSubmit={handleSubmit} className="form">
         <div className="closeDiv">
           {

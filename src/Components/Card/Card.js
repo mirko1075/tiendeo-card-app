@@ -12,7 +12,6 @@ export default function Card(props) {
   const [id, setId] = useState(card.id);
   const [title, setTitle] = useState(card.title);
   const [description, setDescription] = useState(card.description);
-  const [edit, setEdit] = useState(false);
   const form = useRef(null);
   const descr = useRef(null);
   const points = useRef(null);
@@ -35,7 +34,7 @@ export default function Card(props) {
     formData.append("title", title);
     formData.append("description", description);
     props.updateCard(card.id, formData);
-    setEdit(false)
+    props.setEdit(false)
   };
 
   const returnShortText = (text) => {
@@ -63,12 +62,9 @@ export default function Card(props) {
         {description.length > 200 ? <div className="points" ref={points} onClick={() => returnAllText(description)}>...</div> : ""}
       </div>
       <div className="buttonsContainer">
-        <div className="buttonDiv"><button className="button" data-testid="editButton" onClick={() => setEdit(true)}><img className="icons" src={pencilIcon} alt="edit" />Edit</button></div>
+        <div className="buttonDiv"><button className="button" data-testid="editButton" onClick={() => props.openEditForm(card)}><img className="icons" src={pencilIcon} alt="edit" />Edit</button></div>
         <div className="buttonDiv"><button className="button" data-testid="deleteButton" onClick={() => props.deleteCard(id)}><img className="icons" src={deleteIcon} alt="delete" />Delete</button></div>
       </div>
-      {
-        edit && <Form card={card} edit setEdit={setEdit} updateCard={props.updateCard} />
-      }
     </div>
   )
 }

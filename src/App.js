@@ -8,10 +8,11 @@ import './App.css';
 function App() {
   const [cards, setCards] = useState([]);
   const [cardsOrig, setCardsOrig] = useState([]);
+  const [cardToEdit, setCardToEdit] = useState({});
   const [searchText, setSearchText] = useState("");
   const [create, setCreate] = useState(false);
   const [token, setToken] = useState("");
-
+  const [edit, setEdit] = useState(false);
   const inputRef = useRef(null)
 
   useEffect(() => {
@@ -82,6 +83,10 @@ function App() {
   const handleChange = (e) => {
     setSearchText(inputRef.current.value);
   }
+  const openEditForm = (card) => {
+    setCardToEdit(card);
+    setEdit(true)
+  }
   useEffect(() => {
     let newCards = [];
     searchText.length > 0 ? newCards = [...cards.filter(el => el.title.includes(searchText) || el.description.includes(searchText))] : newCards = [...cardsOrig];
@@ -124,18 +129,20 @@ function App() {
         </div>
         {
           cards && cards.map(card =>
-            <Card key={card.id} name="card" card={card} deleteCard={deleteCard} updateCard={updateCard} />
+            <Card key={card.id} name="card" card={card} deleteCard={deleteCard} updateCard={updateCard} openEditForm={openEditForm} />
           )
         }
-
-        {create ?
-          <Form setCreate={setCreate} addCard={addCard} deleteCard={deleteCard} />
-          :
-          <div className="addDiv">
-            <button data-testid="buttonAdd" className="buttonAdd" onClick={() => setCreate(true)}></button>
-          </div>
-        }
       </div>
+      {create ?
+        <Form setCreate={setCreate} addCard={addCard} deleteCard={deleteCard} />
+        :
+        <div className="addDiv">
+          <button data-testid="buttonAdd" className="buttonAdd" onClick={() => setCreate(true)}></button>
+        </div>
+      }
+      {
+        edit && <Form card={cardToEdit} edit setEdit={setEdit} updateCard={updateCard} />
+      }
     </div>
   );
 }

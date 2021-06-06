@@ -34,13 +34,6 @@
 .image {
   float: left;
   width: 10%;
-  &:nth-child(2n) {
-    clear: left;
-  }
-
-  &:nth-child(2n + 1) {
-    margin-right: 0;
-  }
 }
 a {
   color: #0f0f0f;
@@ -53,8 +46,8 @@ a {
   height: 90vh;
   align-items: flex-start;
   align-content: flex-start;
-  position: absolute;
-  top: 50px;
+  width: 100%;
+  margin-top: 50px;
 }
 
 .header {
@@ -79,20 +72,16 @@ a {
   margin: 8px 8px 0 8px;
 }
 .modal {
-  //position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  //top: 0;
-  //left: 0;
-  min-width: 500px;
-  width: 100%;
-  min-height: 700px;
-  max-height: 100%;
+  top: 0;
+  left: 0;
+  min-width: 100vw;
+  min-height: 100vh;
   background-color: rgba(0, 0, 0, 0.3);
+  z-index: 2;
 }
 .editModal {
   position: absolute;
@@ -115,7 +104,6 @@ a {
   margin: 0 0 10px 0;
   min-width: 400px;
   max-width: 400px;
-  position: absolute;
   top: 50px;
 }
 .imgInput {
@@ -216,6 +204,7 @@ nav {
   top: 0;
   left: 0;
   transform: translate(10%, 10%);
+  z-index: 1;
 }
 
 .addDiv {
@@ -284,67 +273,19 @@ nav {
   .img {
     height: 60px;
     width: 60px;
-    background-color: #c4c4c4;
   }
 
   .image {
     float: left;
     width: 10%;
-    &:nth-child(2n) {
-      clear: left;
-    }
+  }
 
-    &:nth-child(2n + 1) {
-      margin-right: 0;
-    }
-  }
-  a {
-    color: #0f0f0f;
-    text-decoration: none;
-  }
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    height: 90vh;
-  }
-  .header {
-    display: flex;
-  }
   .card {
-    display: flex;
-    flex-direction: column;
     width: 90%;
     min-height: 200px;
-    height: fit-content;
     max-width: 400px;
-    border: 1px solid #c4c4c4;
-    border-radius: 4px;
-    margin: 0 10px 10px 0;
   }
-  .imgDiv {
-    display: flex;
-    justify-content: center;
-    border: 0.5px solid grey;
-    box-shadow: 5px 5px 5px grey;
-    margin: 8px 8px 0 8px;
-  }
-  .modal {
-    //position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-    //top: 0;
-    //left: 0;
-    min-width: 100vw;
-    width: 100vw;
-    min-height: 700px;
-    max-height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
-  }
+
   .form {
     background-color: #ffffff;
     padding: 20px;
