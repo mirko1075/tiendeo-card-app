@@ -98,9 +98,14 @@ a {
   padding: 10px 20px 20px 20px;
   display: flex;
   flex-direction: column;
+  box-shadow: 5px 5px 5px #6f7071;
+  border-radius: 4px;
 }
 .label {
   text-align: center;
+}
+textarea {
+  resize: none;
 }
 .inputContainer {
   display: flex;
@@ -149,6 +154,7 @@ a {
   cursor: pointer;
   box-shadow: 2px 2px 2px grey;
 }
+
 .button:hover {
   background-color: white;
   color: black;
@@ -163,6 +169,10 @@ a {
   width: 20vw;
   text-transform: uppercase;
   cursor: pointer;
+}
+.active {
+  background-color: white;
+  color: black;
 }
 .navButtonDiv {
   margin: 5px;

@@ -13,6 +13,7 @@ function App() {
   const [create, setCreate] = useState(false);
   const [token, setToken] = useState("");
   const [edit, setEdit] = useState(false);
+  const [orderSet, setOrderSet] = useState("");
   const inputRef = useRef(null)
 
   useEffect(() => {
@@ -100,27 +101,31 @@ function App() {
         newCards.sort((a, b) => (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0))
         setCards(newCards);
         setCardsOrig([...newCards]);
+        setOrderSet(order);
         break;
       case "title-desc":
         newCards.sort((a, b) => (a.title > b.title) ? -1 : ((b.title > a.title) ? 1 : 0))
         setCards(newCards);
         setCardsOrig([...newCards]);
+        setOrderSet(order);
         break;
       case "dateAsc":
         newCards.sort((a, b) => new Date(a.created) < new Date(b.created) ? 1 : -1)
         setCards(newCards);
         setCardsOrig([...newCards]);
+        setOrderSet(order);
         break;
       case "dateDesc":
         newCards.sort((a, b) => new Date(a.created) > new Date(b.created) ? 1 : -1)
         setCards(newCards);
         setCardsOrig([...newCards]);
+        setOrderSet(order);
         break;
     }
   }
   return (
     <div className="App">
-      <Nav orderArr={orderArr} />
+      <Nav orderArr={orderArr} orderSet={orderSet} />
       <div className="container">
         <div className="searchDiv">
           <label htmlFor="searchInput" name="searchLabel" className="searchLabel">Search</label>

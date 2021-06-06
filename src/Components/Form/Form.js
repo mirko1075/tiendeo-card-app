@@ -43,10 +43,15 @@ export default function Form({ edit = false, setCreate, setEdit, addCard, update
     setEdit && setEdit(false);
     setCreate && setCreate(false);
   };
-  const classVar = setEdit ? 'editModal' : ''
+  const globalClick = (e) => {
+    setEdit && setEdit(false);
+    setCreate && setCreate(false);
+  }
+
+  //const classVar = setEdit ? 'editModal' : '';
   return (
-    <div className="modal">
-      <form ref={form} onSubmit={handleSubmit} className="form">
+    <div className="modal" onClick={globalClick}>
+      <form ref={form} onSubmit={handleSubmit} className="form" onClick={(e) => globalClick(e)}>
         <div className="closeDiv">
           {
             edit ?
