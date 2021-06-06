@@ -46,16 +46,16 @@ export default function Form({ edit = false, setCreate, setEdit, addCard, update
   const classVar = setEdit ? 'editModal' : ''
   return (
     <div className={"modal " + classVar}>
-      <div className="closeDiv">
-        {
-          edit ?
-            <button className="closeButton" onClick={() => setEdit(false)}>X</button>
-            :
-            <button className="closeButton" onClick={() => setCreate(false)}>X</button>
-        }
-
-      </div>
       <form ref={form} onSubmit={handleSubmit} className="form">
+        <div className="closeDiv">
+          {
+            edit ?
+              <button className="closeButton" onClick={() => setEdit(false)}>X</button>
+              :
+              <button className="closeButton" onClick={() => setCreate(false)}>X</button>
+          }
+
+        </div>
         <div className="inputContainer">
           <label htmlFor="title">Title</label>
           <input type="text" placeholder='Write here the title...' id='title' value={title} onChange={handleChange} required />

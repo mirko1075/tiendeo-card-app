@@ -225,11 +225,9 @@ nav {
   cursor: pointer;
 }
 .closeDiv {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  align-content: flex-start;
   height: 100%;
+  width: 100%;
+  text-align: end;
 }
 .closeButton {
   color: white;
@@ -456,11 +454,9 @@ nav {
     cursor: pointer;
   }
   .closeDiv {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    align-content: flex-start;
     height: 100%;
+    width: 100%;
+    text-align: end;
   }
   .closeButton {
     color: white;
