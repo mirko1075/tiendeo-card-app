@@ -250,8 +250,7 @@ nav {
   border: 1 px solid #6f7071;
 }
 
-@media only screen and (max-device-width: 480px),
-  only screen and (min-device-width: 320px) {
+@media only screen and (max-device-width: 480px) {
   .img {
     height: 60px;
     width: 60px;
