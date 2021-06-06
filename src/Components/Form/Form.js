@@ -49,7 +49,13 @@ export default function Form({ edit = false, setCreate, setEdit, addCard, update
   return (
     <div className="modal">
       <div className="closeDiv">
-        <button onClick={() => setCreate(false)}>X</button>
+        {
+          edit ?
+            <button className="closeButton" onClick={() => setEdit(false)}>X</button>
+            :
+            <button className="closeButton" onClick={() => setCreate(false)}>X</button>
+        }
+
       </div>
       <form ref={form} onSubmit={handleSubmit} className="form">
         <div className="inputContainer">
@@ -58,7 +64,7 @@ export default function Form({ edit = false, setCreate, setEdit, addCard, update
         </div>
         <div className="inputContainer">
           <label htmlFor="description">Description</label>
-          <input type="text" placeholder='Write here descr...' id='description' value={description} onChange={handleChange} required />
+          <textarea name="description" id="description" cols="30" rows="10" placeholder="Write here descr..." onChange={handleChange} required>{description ? description : ''}</textarea>
         </div>
         {!edit &&
           <div className="inputContainer">
@@ -67,11 +73,15 @@ export default function Form({ edit = false, setCreate, setEdit, addCard, update
               id="image"
               className="imgInput"
               accept="image/png, image/jpeg" onChange={handleImageChange} />
-            {image && <img src={preview} alt="preview" />}
+            <div className="imgPreview">
+              {image && <img src={preview} className="img object-fit_scale-down" alt="preview" />}
+            </div>
           </div>
         }
-        <input className="button" type="submit" />
+        <div className="sumbitDiv">
+          <input className="button" type="submit" />
+        </div>
       </form>
-    </div>
+    </div >
   )
 }

@@ -4,7 +4,10 @@
   display: flex;
   flex-direction: column;
 }
-
+.icons {
+  width: 15px;
+  height: 15px;
+}
 .object-fit_fill {
   object-fit: fill;
 }
@@ -22,13 +25,10 @@
   object-fit: scale-down;
 }
 
-img {
+.img {
   height: 120px;
-  background-color: #444;
-}
-
-img[class] {
   width: 100%;
+  background-color: #444;
 }
 
 .image {
@@ -56,22 +56,31 @@ a {
   display: flex;
   flex-direction: column;
   width: 50%;
-  max-width: 500px;
-  border: 1px solid black;
+  min-height: 200px;
+  height: fit-content;
+  max-width: 400px;
+  border: 1px solid grey;
+  border-radius: 4px;
+  margin: 0 10px 0 0;
 }
 .imgDiv {
   display: flex;
   justify-content: center;
 }
 .modal {
-  position: absolute;
+  //position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 0;
-  left: 0;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  //top: 0;
+  //left: 0;
+  min-width: 500px;
   width: 100%;
-  height: 100%;
+  min-height: 700px;
+  max-height: 100%;
   background-color: rgba(0, 0, 0, 0.3);
 }
 .form {
@@ -88,35 +97,81 @@ a {
   flex-direction: column;
   color: #000000;
   margin: 0 0 10px 0;
+  min-width: 400px;
+  max-width: 400px;
 }
 .imgInput {
   display: none;
 }
 .imgLabel {
-  background-color: #335eff;
-  border: 1px solid blue;
+  background-color: #b3b4b7;
+  border: 1px solid #b3b4b7;
   border-radius: 4px;
-  color: white;
-  font-weight: 500;
-}
-.button {
-  background-color: #335eff;
-  border: 1px solid blue;
-  border-radius: 4px;
-  color: white;
+  color: black;
   font-weight: 500;
   text-align: center;
+  margin: 0 0 5px 0;
+}
+.imgPreview {
+  background-color: #444;
+  border: 0px solid #444;
+  border-radius: 4px;
+  margin: 0;
+  padding: 0;
+}
+.button {
+  background-color: #6f7071;
+  background-color: #6f7071;
+  border: 1px solid #6f7071;
+  border-radius: 4px;
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  width: 150px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
 }
 .navButtons {
-  width: 300px;
+  background-color: #6f7071;
+  border: 1px solid #6f7071;
+  border-radius: 4px;
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  width: 20vw;
+  text-transform: uppercase;
 }
 .buttonsContainer {
   display: flex;
   justify-content: space-around;
+  height: 50px;
+  background-color: #b3b4b7;
 }
-.titleDiv,
-.descrDiv {
+
+.sumbitDiv {
+  display: flex;
+  justify-content: center;
+}
+.buttonDiv {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.titleDiv {
+  padding: 10px;
   text-align: left;
+  height: 30px;
+  font-weight: 700;
+  border-bottom: 0.5px solid grey;
+}
+.descrDiv {
+  padding: 10px;
+  text-align: left;
+  min-height: 50px;
 }
 
 nav {
@@ -126,23 +181,37 @@ nav {
 }
 
 .addDiv {
-  position: absolute;
+  position: fixed;
   bottom: 20px;
   right: 20px;
 }
 
 .buttonAdd {
-  border: 1 solid blue;
+  border: 1px solid #6f7071;
   border-radius: 50%;
-  width: 25px;
-  height: 25px;
-  background-color: blue;
+  width: 40px;
+  height: 40px;
+  background-color: #6f7071;
   color: white;
+  font-size: 2rem;
   font-weight: 500;
   text-align: center;
 }
 .closeDiv {
   display: flex;
-  align-items: flex-end;
-  align-content: flex-end;
+  flex-direction: column;
+  align-items: flex-start;
+  align-content: flex-start;
+  height: 100%;
+}
+.closeButton {
+  color: white;
+  background-color: #6f7071;
+  border: 1px solid #6f7071;
+  border-radius: 50%;
+}
+
+.icons {
+  width: 20px !important;
+  height: 20px;
 }

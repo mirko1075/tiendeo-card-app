@@ -4,11 +4,14 @@ import Form from "./Components/Form/Form"
 import apiService from "./lib/api-service";
 import './App.css';
 
+
+
+
+
 function App() {
   const [cards, setCards] = useState([]);
   const [create, setCreate] = useState(false);
   const [token, setToken] = useState("")
-
   useEffect(() => {
     const token = localStorage.getItem("token");
     setToken(token);
@@ -18,7 +21,6 @@ function App() {
         setCards(cardsReceived);
       })
       .catch(err => {
-        console.log("err", err)
         if (err.message === "Unuthorized") {
           apiService.getToken()
             .then(tokenReceived => {
@@ -34,7 +36,6 @@ function App() {
             .catch(err => console.log(err))
         }
       });
-
   }, []);
 
   const addCard = (card) => {
@@ -105,20 +106,16 @@ function App() {
       <div className="container">
         {
           cards && cards.map(card =>
-            <div>
-              <Card key={card.id} card={card} deleteCard={deleteCard} updateCard={updateCard} />
-            </div>
+            <Card key={card.id} card={card} deleteCard={deleteCard} updateCard={updateCard} />
           )
         }
       </div>
       <div>
         {create ?
-          <div>
-            <Form setCreate={setCreate} addCard={addCard} deleteCard={deleteCard} />
-          </div>
+          <Form setCreate={setCreate} addCard={addCard} deleteCard={deleteCard} />
           :
-          <div addDiv>
-            <button class="buttonAdd" onClick={() => setCreate(true)}>+</button>
+          <div className="addDiv">
+            <button className="buttonAdd" onClick={() => setCreate(true)}>+</button>
           </div>
         }
       </div>
