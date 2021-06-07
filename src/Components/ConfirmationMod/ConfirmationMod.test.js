@@ -5,10 +5,10 @@ import { render } from "@testing-library/react";
 import "@testing-library/jest-dom"
 it("Renders without crashing", () => {
     const div = document.createElement("div");
-    ReactDom.render(<Form key="1" name="form" card={{ title: "Title", description: "Description" }} />, div)
+    ReactDom.render(<ConfirmationMod />, div)
 })
 it("Renders buttons correctly", () => {
-    const { getByTestId } = render(<Form key="1" name="card" card={{ title: "Title", description: "Description" }} />);
-    expect(getByTestId('submit')).toHaveValue("Submit");
-    expect(getByTestId('imgLabel')).toHaveTextContent("Select an image");
+    const { getByTestId } = render(<ConfirmationMod />);
+    expect(getByTestId('confirm')).toHaveTextContent("CONFIRM");
+    expect(getByTestId('cancel')).toHaveTextContent("CANCEL");
 })
