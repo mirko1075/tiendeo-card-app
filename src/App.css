@@ -52,7 +52,12 @@ nav {
 .object-fit_scale-down {
   object-fit: scale-down;
 }
-
+.descrContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
 .img {
   height: 120px;
   width: 120px;
@@ -230,13 +235,14 @@ textarea {
   flex-direction: row;
   padding: 10px;
   text-align: left;
-  min-height: 90px;
+  height: 100%;
+  width: -moz-fit-content;
   width: fit-content;
   align-items: flex-end;
 }
 .descrText {
   width: fit-content;
-  min-height: 90px;
+  min-height: 77px;
 }
 .navContainer {
   display: flex;

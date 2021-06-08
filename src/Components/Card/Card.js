@@ -67,8 +67,10 @@ export default function Card({ card, askConfDeleteCart, openEditForm, setEdit, u
       </div>
 
       <div className="descrDiv">
-        <div ref={descr} className="descrText">{returnText(description)}</div>
-        {description.length > 200 ? <div className="points" ref={points} onClick={() => setIsShortText(!isShortText)}>{!isShortText ? 'More' : 'Less'}</div> : ""}
+        <div className="descrContainer" >
+          <div ref={descr} className="descrText">{returnText(description)}</div>
+          {description.length > 200 ? <div className="points" ref={points} onClick={() => setIsShortText(!isShortText)}>{!isShortText ? 'More' : 'Less'}</div> : ""}
+        </div>
       </div>
       <div className="buttonsContainer">
         <div className="buttonDiv"><button className="button" data-testid="editButton" onClick={() => openEditForm(card)}><img className="icons" src={pencilIcon} alt="edit" />Edit</button></div>
