@@ -36,12 +36,12 @@ export default function Card({ card, askConfDeleteCart, openEditForm, setEdit, u
     setEdit(false);
   };
 
-  const returnShortText = (text) => {
-    return text.slice(0, 150)[0].toUpperCase() + text.slice(0, 150).slice(1);
+  const returnText = (text) => {
+    return !isShortText ? text.slice(0, 150)[0].toUpperCase() + text.slice(0, 150).slice(1) : text;
   }
 
 
-  const returnAllText = (text) => {
+  const showAllText = (text) => {
     if (isShortText) {
       descr.current.innerHTML = text[0].toUpperCase() + text.slice(1);
     } else {
@@ -49,16 +49,26 @@ export default function Card({ card, askConfDeleteCart, openEditForm, setEdit, u
     }
     setIsShortText(!isShortText);
   }
+
+  const showShortText = (text) => {
+    if (isShortText) {
+      descr.current.innerHTML = text[0].toUpperCase() + text.slice(1);
+    } else {
+      descr.current.innerHTML = text.slice(0, 150)[0].toUpperCase() + text.slice(0, 150).slice(1);
+    }
+    setIsShortText(!isShortText);
+  }
+
   return (
     <div className="card">
       <div className="header">
-        <div className="imgDiv"><img className="img object-fit_fill" src={card.imageUrl !== "https://tiendeo-frontend-cards-api.herokuapp.com/" ? card.imageUrl : defaultImg} alt="Image" /></div>
+        <div className="imgDiv fill"><img className="img" src={card.imageUrl !== "https://tiendeo-frontend-cards-api.herokuapp.com/" ? card.imageUrl : defaultImg} alt="Image" /></div>
         <div className="titleDiv">{title}</div>
       </div>
 
       <div className="descrDiv">
-        <div ref={descr} className="descrText">{returnShortText(description)}</div>
-        {description.length > 200 ? <div className="points" ref={points} onClick={() => returnAllText(description)}>...</div> : ""}
+        <div ref={descr} className="descrText">{returnText(description)}</div>
+        {description.length > 200 ? <div className="points" ref={points} onClick={() => setIsShortText(!isShortText)}>{!isShortText ? 'More' : 'Less'}</div> : ""}
       </div>
       <div className="buttonsContainer">
         <div className="buttonDiv"><button className="button" data-testid="editButton" onClick={() => openEditForm(card)}><img className="icons" src={pencilIcon} alt="edit" />Edit</button></div>

@@ -147,12 +147,8 @@ function App() {
 
   return (
     <div className="App">
-      <Nav orderArr={orderArr} orderSet={orderSet} />
+      <Nav orderArr={orderArr} orderSet={orderSet} inputRef={inputRef} handleChange={handleChange} searchText={searchText} />
       <div className="container">
-        <div className="searchDiv">
-          <label htmlFor="searchInput" name="searchLabel" className="searchLabel">Search</label>
-          <input ref={inputRef} type="text" placeholder="Search text..." className="searchInput" id="searchInput" onChange={handleChange} value={searchText} />
-        </div>
         {
           cards && cards.map(card =>
             <Card key={card.id} name="card" openEditForm={openEditForm} card={card} askConfDeleteCart={askConfDeleteCart} updateCard={updateCard} openEditForm={openEditForm} />

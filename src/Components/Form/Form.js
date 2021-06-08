@@ -56,7 +56,6 @@ export default function Form({ edit = false, setCreate, setEdit, addCard, update
               :
               <button className="closeButton" onClick={() => setCreate(false)}></button>
           }
-
         </div>
         <div className="inputContainer">
           <label htmlFor="title">Title</label>
@@ -73,8 +72,8 @@ export default function Form({ edit = false, setCreate, setEdit, addCard, update
               id="image"
               className="imgInput"
               accept="image/png, image/jpeg" onChange={handleImageChange} />
-            <div className="imgPreview">
-              {image && <img src={preview} className="img object-fit_scale-down" alt="preview" />}
+            <div className="imgPreview fill">
+              {image && <img src={preview} className="img" alt="preview" />}
             </div>
           </div>
         }
