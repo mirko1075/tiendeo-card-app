@@ -6,10 +6,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-input[type='text'],
-input[type='number'],
-input {
+input[type='text'] {
   font-size: 14px;
+  border: 0.2px solid #c4c4c4;
+  border-radius: 4px;
 }
 .App {
   display: flex;
@@ -93,7 +93,7 @@ a {
   min-height: 200px;
   height: fit-content;
   max-width: 400px;
-  border: 1px solid #c4c4c4;
+  border: 0.5px solid #c4c4c4;
   border-radius: 4px;
   margin: 0 10px 10px 0;
   box-shadow: 5px 5px 5px grey;
@@ -150,7 +150,7 @@ textarea {
 }
 .imgLabel {
   background-color: #c4c4c4;
-  border: 1px solid #c4c4c4;
+  border: 0.5px solid #c4c4c4;
   border-radius: 4px;
   color: black;
   font-weight: 500;
@@ -169,7 +169,7 @@ textarea {
 }
 .button {
   background-color: #6f7071;
-  border: 1px solid #6f7071;
+  border: 0.5px solid #6f7071;
   border-radius: 4px;
   color: white;
   font-weight: 700;
@@ -190,7 +190,7 @@ textarea {
 }
 .navButtons {
   background-color: #6f7071;
-  border: 1px solid #6f7071;
+  border: 0.5px solid #6f7071;
   border-radius: 4px;
   color: white;
   font-weight: 700;
@@ -276,7 +276,7 @@ textarea {
 }
 
 .buttonAdd {
-  border: 1px solid #6f7071;
+  border: 0.5px solid #6f7071;
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -329,7 +329,8 @@ textarea {
 }
 .searchInput {
   width: 500px;
-  border: 1 px solid #6f7071;
+  border: 0.5px solid #6f7071;
+  height: 25px;
 }
 .points {
   cursor: pointer;
