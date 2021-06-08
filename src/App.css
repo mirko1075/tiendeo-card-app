@@ -6,6 +6,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+input[type='text'],
+input[type='number'],
+input {
+  font-size: 14px;
+}
 .App {
   display: flex;
   flex-direction: column;
