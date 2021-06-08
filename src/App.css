@@ -400,4 +400,13 @@ textarea {
   .searchInput {
     width: 200px;
   }
+  .conf-text-div {
+    min-width: 90%;
+    min-height: 50px;
+  }
+
+  .conf-buttons-div {
+    min-width: 200px;
+    min-height: 50px;
+  }
 }
